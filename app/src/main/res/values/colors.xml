@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="colorBottomNavi">#121212</color>
+    <color name="colorSelectItem">#FDFDFD</color>
+    <color name="colorItem">#5D5D5D</color>
+    <color name="colorNetflicBack">#1A1A1A</color>
+
+</resources>

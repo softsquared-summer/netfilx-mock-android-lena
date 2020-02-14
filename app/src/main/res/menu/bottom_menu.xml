@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+
+    <item
+        android:id="@+id/action_home"
+        android:enabled="true"
+        android:icon="@drawable/ic_home"
+        android:title="홈"
+        >
+    </item>
+
+    <item
+        android:id="@+id/action_search"
+        android:enabled="true"
+        android:icon="@drawable/ic_search"
+        android:title="검색"
+        >
+
+    </item>
+
+    <item
+        android:id="@+id/action_comigup"
+        android:enabled="true"
+        android:icon="@drawable/ic_ondemand_video"
+        android:title="공개 예정"
+        >
+
+    </item>
+
+    <item
+        android:id="@+id/action_download"
+        android:enabled="true"
+        android:icon="@drawable/ic_file_download"
+        android:title="저장한 콘텐츠 목록"
+        >
+
+    </item>
+
+    <item
+        android:id="@+id/action_menu"
+        android:enabled="true"
+        android:icon="@drawable/ic_menu"
+        android:title="더 보기"
+        >
+
+    </item>
+</menu>
