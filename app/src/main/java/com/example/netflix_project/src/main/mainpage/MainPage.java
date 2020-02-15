@@ -10,9 +10,9 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.netflix_project.R;
-import com.example.netflix_project.src.main.Add.AddFrag;
-import com.example.netflix_project.src.main.ComingUp.ComingUpFrag;
-import com.example.netflix_project.src.main.Download.DownloadFrag;
+import com.example.netflix_project.src.main.add.AddFrag;
+import com.example.netflix_project.src.main.comingup.ComingUpFrag;
+import com.example.netflix_project.src.main.download.DownloadFrag;
 import com.example.netflix_project.src.main.home.HomeFrag;
 import com.example.netflix_project.src.main.search.SearchFrag;
 import com.google.android.material.bottomnavigation.BottomNavigationView;

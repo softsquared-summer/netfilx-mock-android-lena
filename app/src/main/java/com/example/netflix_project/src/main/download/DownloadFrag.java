@@ -1,4 +1,4 @@
-package com.example.netflix_project.src.main.Add;
+package com.example.netflix_project.src.main.download;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,14 +11,14 @@ import androidx.fragment.app.Fragment;
 
 import com.example.netflix_project.R;
 
-public class AddFrag extends Fragment {
+public class DownloadFrag extends Fragment {
 
     private View view;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view=inflater.inflate(R.layout.frag_add,container,false);
+        view=inflater.inflate(R.layout.frag_download,container,false);
         
         return view;
     }

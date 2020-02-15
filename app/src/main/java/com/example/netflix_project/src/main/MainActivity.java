@@ -12,8 +12,6 @@ import com.example.netflix_project.src.main.interfaces.MainActivityView;
 
 
 public class MainActivity extends BaseActivity implements MainActivityView {
-    private TextView mTvHelloWorld;
-
 
 
 
@@ -23,7 +21,7 @@ public class MainActivity extends BaseActivity implements MainActivityView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mTvHelloWorld = findViewById(R.id.main_tv_hello_world);
+
 
 
 
@@ -40,7 +38,7 @@ public class MainActivity extends BaseActivity implements MainActivityView {
     @Override
     public void validateSuccess(String text) {
         hideProgressDialog();
-        mTvHelloWorld.setText(text);
+
     }
 
     @Override
@@ -50,12 +48,6 @@ public class MainActivity extends BaseActivity implements MainActivityView {
     }
 
     public void customOnClick(View view) {
-        switch (view.getId()) {
-            case R.id.main_btn_hello_world:
-                tryGetTest();
-                break;
-            default:
-                break;
-        }
+
     }
 }
