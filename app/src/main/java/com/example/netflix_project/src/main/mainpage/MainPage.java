@@ -23,7 +23,7 @@ public class MainPage extends AppCompatActivity {
     private BottomNavigationView bottomNavigationView;
     private FragmentTransaction fragmentTransaction;
     private FragmentManager fragmentManager;
-
+    BottomNavigationHelper bottomNavigationHelper;
     private AddFrag mAddFrag;
     private HomeFrag mHomeFrag;
     private SearchFrag mSearchFrag;
@@ -36,8 +36,9 @@ public class MainPage extends AppCompatActivity {
         setContentView(R.layout.mainpage);
 
         bottomNavigationView=findViewById(R.id.menu_bottom_navi);
+        bottomNavigationHelper.disableShiftMode(bottomNavigationView);
         bottomNavigationView.setLabelVisibilityMode(LabelVisibilityMode.LABEL_VISIBILITY_LABELED);
-        BottomNavigationHelper.disableShiftMode(bottomNavigationView);
+
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override

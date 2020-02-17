@@ -1,11 +1,10 @@
-package com.example.netflix_project.src.main;
+package com.example.netflix_project.src.main.home.Adapter;
 
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -24,7 +23,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
     private List<Genre> allGenres;
     private String IMAGE_BASE_URL = "http://image.tmdb.org/t/p/w500";
 
-    public MoviesAdapter(List<Movie> movies, List<Genre> allGenres) {
+    public MoviesAdapter(List<Movie> movies) {
         this.movies = movies;
         this.allGenres = allGenres;
     }
@@ -52,6 +51,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
         public MovieViewHolder(View itemView) {
             super(itemView);
             poster = itemView.findViewById(R.id.item_movie_poster);
+
         }
 
         public void bind(Movie movie) {
@@ -60,6 +60,8 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
                     .load(IMAGE_BASE_URL + movie.getPosterPath())
                     .apply(RequestOptions.placeholderOf(R.color.colorPrimary))
                     .into(poster);
+
+
         }
 
         private String getGenres(List<Integer> genreIds) {

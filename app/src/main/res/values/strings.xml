@@ -2,4 +2,7 @@
     <string name="app_name">Netflix_Project</string>
     <string name="loading">로딩중입니다.</string>
     <string name="network_error">네트워크 연결이 원활하지 않습니다.</string>
+    <string name="id_hint"><font size="6">이메일 주소 또는 전화번호</font></string>
+    <string name="pass_hint"><font size="6">비밀번호</font></string>
+
 </resources>

@@ -7,5 +7,12 @@
     <color name="colorSelectItem">#FDFDFD</color>
     <color name="colorItem">#5D5D5D</color>
     <color name="colorNetflicBack">#1A1A1A</color>
-
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorOrangeWhite">#F1DBBA</color>
+    <color name="colorTitleSample">#E96DA1</color>
+    <color name="color_NetflixRed">#EE1C25</color>
+    <color name="color_Clear">#00ff0000</color>
+    <color name="Color_login_on">#7E7E7E</color>
+    <color name="Color_login_off">#262626</color>
 </resources>

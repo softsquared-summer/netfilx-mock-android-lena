@@ -15,7 +15,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class MoviesRepository {
 
     private static final String BASE_URL = "https://api.themoviedb.org/3/";
-    private static final String LANGUAGE = "en-US";
+    private static final String LANGUAGE = "ko-KR";
     private String API_KEY="7758c57b7f0f09632a680ee764656d45";
     private static MoviesRepository repository;
 

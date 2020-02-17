@@ -31,6 +31,8 @@ dependencies {
     //glide 이미지 처리
     implementation 'com.github.bumptech.glide:glide:4.11.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+    implementation 'jp.wasabeef:glide-transformations:4.1.0'
+//    implementation 'jp.co.cyberagent.android:gpuimage:2.0.0'
 
     //recycler
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
@@ -52,10 +54,17 @@ dependencies {
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.6.1'
 
     //youtube
-    //implementation files('libs\\YouTubeAndroidPlayerApi.jar')
+    implementation files('libs\\YouTubeAndroidPlayerApi.jar')
+
+    //cardview
+    implementation 'androidx.cardview:cardview:1.0.0'
+
+    //CircleImage View
+    implementation 'de.hdodenhof:circleimageview:3.0.0'
 
     implementation 'com.android.support:support-annotations:20.0.0'
     annotationProcessor 'io.realm:realm-android:0.87.1'
+    implementation 'com.google.android.material:material:1.2.0-alpha04'
 
-
+    implementation 'me.relex:circleindicator:1.2.2'
 }
