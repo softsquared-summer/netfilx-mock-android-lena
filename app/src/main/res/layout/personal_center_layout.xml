@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+       <ImageView
+           android:layout_width="wrap_content"
+           android:layout_height="50dp"
+           android:src="@drawable/ic_keyboard_backspace"
+           android:layout_alignParentLeft="true"
+           android:id="@+id/personal_info_btn_back"
+           android:background="@color/color_Clear"
+           android:clickable="true"
+           android:paddingLeft="10dp"
+           >
+       </ImageView>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:src="@drawable/netflix_logo"
+            android:layout_centerInParent="true"
+
+            >
+        </ImageView>
+    </RelativeLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="자주묻는 질문 찾아보기"
+        android:textColor="@color/colorBlack"
+        android:textSize="20dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        >
+    </TextView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </RelativeLayout>
+</LinearLayout>
