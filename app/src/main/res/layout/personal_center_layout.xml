@@ -15,6 +15,7 @@
            android:background="@color/color_Clear"
            android:clickable="true"
            android:paddingLeft="10dp"
+           android:onClick="onBackClickP"
            >
        </ImageView>
 
@@ -35,12 +36,275 @@
         android:textSize="20dp"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
+
+        android:paddingBottom="30dp"
         >
     </TextView>
 
-    <RelativeLayout
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp"
+    >
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:background="@drawable/border"
+        android:id="@+id/pc_personal_center"
+        android:onClick="onButtonClickedHelp"
+        android:clickable="true"
+        >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_input_blue"
+            android:layout_gravity="center"
+            android:paddingLeft="10dp"
+            >
+        </ImageView>
 
-    </RelativeLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="고객센터"
+            android:textColor="@color/ColorBlue"></TextView>
+
+</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:background="@drawable/border"
+        android:id="@+id/pc_pay"
+        android:onClick="onButtonClickedPay"
+        >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_input_blue"
+            android:layout_gravity="center"
+            android:paddingLeft="10dp"
+            >
+        </ImageView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="결제 수단 변경"
+            android:textColor="@color/ColorBlue"
+            android:padding="10dp"
+            >
+        </TextView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:background="@drawable/border"
+        android:id="@+id/pc_request"
+        android:onClick="onButtonClickeRequest"
+        >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_input_blue"
+            android:layout_gravity="center"
+            android:paddingLeft="10dp"
+            >
+        </ImageView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="새로운 작품 요청하기"
+            android:textColor="@color/ColorBlue"
+            android:padding="10dp"
+            >
+        </TextView>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:background="@drawable/border"
+        android:id="@+id/pc_password_modify"
+        android:onClick="onButtonClickePassword"
+        >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_input_blue"
+            android:layout_gravity="center"
+            android:paddingLeft="10dp"
+            >
+        </ImageView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="비밀번호 수정"
+            android:textColor="@color/ColorBlue"
+            android:padding="10dp"
+            >
+        </TextView>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:background="@drawable/border"
+        android:id="@+id/pc_membership"
+        android:onClick="onButtonClickeCancel"
+        >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_input_blue"
+            android:layout_gravity="center"
+            android:paddingLeft="10dp"
+            >
+        </ImageView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="멤버심 해지"
+            android:textColor="@color/ColorBlue"
+            android:padding="10dp"
+            >
+        </TextView>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:background="@drawable/border"
+        android:id="@+id/pc_connection"
+        android:onClick="onButtonClickeTrouble"
+        >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_input_blue"
+            android:layout_gravity="center"
+            android:paddingLeft="10dp"
+            >
+        </ImageView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="접속문제 해결"
+            android:textColor="@color/ColorBlue"
+            android:padding="10dp"
+            >
+        </TextView>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:background="@drawable/border"
+        android:id="@+id/pc_privacy"
+        android:onClick="onButtonClickPrivacy"
+        >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_input_blue"
+            android:layout_gravity="center"
+            android:paddingLeft="10dp"
+            >
+        </ImageView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="개인정보"
+            android:textColor="@color/ColorBlue"
+            android:padding="10dp"
+            >
+        </TextView>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:background="@drawable/border"
+        android:id="@+id/pc_manual"
+        android:onClick="onButtonClickLegal"
+        >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_input_blue"
+            android:layout_gravity="center"
+            android:paddingLeft="10dp"
+            >
+        </ImageView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="이용 약관"
+            android:textColor="@color/ColorBlue"
+            android:padding="10dp"
+            >
+        </TextView>
+
+    </LinearLayout>
+
+</LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingTop="70dp"
+
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Netflix 고객 센터 문의"
+            android:textSize="20sp"
+            android:textColor="@color/colorBlack"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:paddingBottom="20dp"
+            >
+        </TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="온라인 통화로 상담원과 연결해 드리게습니다."
+            android:textColor="@color/colorBlack"
+            android:textSize="13sp"
+            android:layout_gravity="center"
+            android:paddingBottom="10dp"
+            >
+
+        </TextView>
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_wb_cloudy_pink"
+            android:background="@color/colorWhite"
+            android:layout_gravity="center"
+            >
+
+        </ImageButton>
+    </LinearLayout>
 </LinearLayout>

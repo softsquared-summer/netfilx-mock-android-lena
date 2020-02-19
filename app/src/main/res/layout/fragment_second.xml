@@ -7,5 +7,12 @@
     android:background="@color/colorBlack"
     >
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ad2"
+        >
+
+    </ImageView>
 
 </LinearLayout>

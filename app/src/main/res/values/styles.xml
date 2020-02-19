@@ -19,6 +19,16 @@
         <item name="android:textSize">11sp</item>
     </style>
 
+    <!--EditTextInput 색 조정-->
+    <style name="EditTextTheme">
+        <item name="colorControlNormal">@color/colorWhite</item>
+        <item name="colorControlActivated">@color/colorWhite</item>
+        <item name="colorControlHighlight">@color/colorWhite</item>
+        <item name="android:textColorHint">@color/colorWhite</item>
+
+    </style>
+
+
 
 
 </resources>

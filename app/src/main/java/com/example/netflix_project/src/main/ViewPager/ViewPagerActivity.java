@@ -6,8 +6,6 @@ import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.ActionBar;
@@ -19,6 +17,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.example.netflix_project.R;
 
+import com.example.netflix_project.src.main.ViewPager.User.Login;
 import com.example.netflix_project.src.main.ViewPager.models.MyPagerAdapter;
 
 import me.relex.circleindicator.CircleIndicator;
@@ -36,21 +35,17 @@ public class ViewPagerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_viewpager);
 
-        //툴바
+        ///툴바 커스텀
         mToolbar=findViewById(R.id.first_toolbar);
        setSupportActionBar(mToolbar);
-
         ActionBar actionBar = getSupportActionBar();
         View viewToolbar = getLayoutInflater().inflate(R.layout.actionbar, null);
         actionBar.setDisplayShowCustomEnabled(true);
         actionBar.setDisplayShowTitleEnabled(false);
-
-        //툴바 커스텀
         actionBar.setCustomView(viewToolbar, new ActionBar.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, Gravity.CENTER));
 
-
-
        View  view = getLayoutInflater().inflate(R.layout.personal_center_layout, null);
+
         mBackButton=view.findViewById(R.id.personal_info_btn_back);
         mBackButton.setClickable(true);
         mBackButton.setOnClickListener(new View.OnClickListener() {
@@ -64,8 +59,11 @@ public class ViewPagerActivity extends AppCompatActivity {
         adapterViewPager = new MyPagerAdapter(getSupportFragmentManager());
         mViewPager.setAdapter(adapterViewPager);
 
+        //인디케이터
         CircleIndicator indicator = (CircleIndicator) findViewById(R.id.view_pager_indicator);
         indicator.setViewPager(mViewPager);
+
+
 
 
 
@@ -81,16 +79,16 @@ public class ViewPagerActivity extends AppCompatActivity {
         Intent intent=new Intent(getApplicationContext(),PersonalCental.class);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
-
-
     }
 
     public void onLoginButtonClick(View view){
-        Intent intent=new Intent(getApplicationContext(),Login.class);
+        Intent intent=new Intent(getApplicationContext(), Login.class);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
 
     }
+
+
 
 
 

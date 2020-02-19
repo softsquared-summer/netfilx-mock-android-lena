@@ -15,4 +15,5 @@
     <color name="color_Clear">#00ff0000</color>
     <color name="Color_login_on">#7E7E7E</color>
     <color name="Color_login_off">#262626</color>
+    <color name="ColorBlue">#0071EC</color>
 </resources>

@@ -7,5 +7,15 @@
     android:background="@color/colorBlack"
     >
 
+    <ImageView
+        android:layout_width="360dp"
+        android:layout_height="571dp"
+        android:src="@drawable/ad1"
+        android:layout_gravity="center"
+        >
+
+
+    </ImageView>
+
 
 </LinearLayout>
