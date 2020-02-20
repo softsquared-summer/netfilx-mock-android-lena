@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/membership_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_Clear" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp"
+        android:layout_marginTop="150dp"
+        >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/register"
+            android:layout_marginBottom="20dp"
+            >
+
+        </ImageView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2/3단계"
+            android:textColor="@color/colorBlack"
+            >
+        </TextView>
+        <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="계정을 등록하세요"
+        android:textColor="@color/colorBlack"
+        android:textSize="20sp"
+         android:layout_marginBottom="20dp"
+
+        >
+    </TextView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="맞춤형 콘텐츠 서비스, 넷플릭스! ID와 비밀번호를 설정하여 다⁠양⁠한 디⁠바⁠이⁠스⁠에⁠서 Netflix⁠를 시⁠청⁠하⁠세⁠요."
+            android:textColor="@color/colorBlack"
+            android:textSize="15sp"
+            android:layout_marginBottom="20dp"
+
+            ></TextView>
+        <Button
+            android:id="@+id/register_btn_next"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_NetflixRed"
+            android:text="다음"
+            android:textColor="@color/colorWhite"
+
+            />
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -28,10 +28,10 @@ public interface UserApi {
             @Query("pw") String pw
     );
 
-    @FormUrlEncoded
+
     @Headers("Content-Type: application/json")
     @POST("/user")
-    Call<LoginResponse> postSignUp(@Body RequestBody id, RequestBody pw, RequestBody name);
+    Call<LoginResponse> postSignUp(@Body Map<String, String> body);
 
 
     @Headers("Content-Type: application/json")

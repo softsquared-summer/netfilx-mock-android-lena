@@ -20,7 +20,7 @@
         android:networkSecurityConfig="@xml/network_security_config"
         >
 
-        <activity android:name=".src.main.ViewPager.ViewPagerActivity">
+        <activity android:name=".src.main.mainpage.MainPage">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -30,12 +30,18 @@
 
         </activity>
 
-        <activity android:name=".src.main.mainpage.MainPage"/>
         <activity android:name=".src.main.ViewPager.PersonalCental"></activity>
-        <activity android:name=".src.main.ViewPager.User.Login"
-            android:windowSoftInputMode="adjustResize"
+<!--        <activity android:name=".src.main.ViewPager.User.Login"-->
+<!--            android:windowSoftInputMode="adjustResize"-->
+<!--            ></activity>-->
 
-            ></activity>
+        <activity android:name=".src.main.SplashActivity.Splash"></activity>
+
+        <activity android:name=".src.main.ViewPager.Membership.Tab1"></activity>
+        <activity android:name=".src.main.ViewPager.Membership.Tab2"/>
+        <activity android:name=".src.main.ViewPager.Membership.Tab3"/>
+
+
 
     </application>
 

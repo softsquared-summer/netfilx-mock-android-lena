@@ -19,7 +19,7 @@
         <item name="android:textSize">11sp</item>
     </style>
 
-    <!--EditTextInput 색 조정-->
+    <!--EditTextInput login 색 조정-->
     <style name="EditTextTheme">
         <item name="colorControlNormal">@color/colorWhite</item>
         <item name="colorControlActivated">@color/colorWhite</item>
@@ -27,6 +27,16 @@
         <item name="android:textColorHint">@color/colorWhite</item>
 
     </style>
+
+    <!--EditTextInput sigonup 색 조정-->
+    <style name="EditTextThemeSignUp">
+        <item name="colorControlNormal">@color/colorBlack</item>
+        <item name="colorControlActivated">@color/colorBlack</item>
+        <item name="colorControlHighlight">@color/Color_login_on</item>
+        <item name="android:textColorHint">@color/Color_login_on</item>
+
+    </style>
+
 
 
 

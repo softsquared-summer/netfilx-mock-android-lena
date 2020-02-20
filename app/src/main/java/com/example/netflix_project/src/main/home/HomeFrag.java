@@ -15,13 +15,16 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.netflix_project.R;
+import com.example.netflix_project.src.BaseActivity;
+import com.example.netflix_project.src.main.ViewPager.User.LoginService;
 import com.example.netflix_project.src.main.home.Adapter.MoviesAdapter;
 import com.example.netflix_project.src.main.home.Adapter.PreviewAdapter;
 import com.example.netflix_project.src.main.interfaces.OnGetGenresCallback;
+import com.example.netflix_project.src.main.models.MovieResponse;
 import com.example.netflix_project.src.main.models.MoviesRepository;
 import com.example.netflix_project.src.main.interfaces.OnGetMoviesCallback;
 import com.example.netflix_project.src.main.models.Genre;
-import com.example.netflix_project.src.main.models.Movie;
+
 import com.example.netflix_project.src.main.models.Trailer;
 import com.google.android.youtube.player.YouTubePlayerFragment;
 import com.google.android.youtube.player.YouTubePlayerSupportFragment;
@@ -30,7 +33,7 @@ import com.google.android.youtube.player.YouTubePlayerView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HomeFrag extends Fragment {
+public class HomeFrag extends Fragment implements OnGetMoviesCallback {
 
     private View view;
     private RecyclerView moviesList, mPreviewRecyclerView;
@@ -47,7 +50,7 @@ public class HomeFrag extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view=inflater.inflate(R.layout.frag_home,container,false);
-        moviesRepository = MoviesRepository.getInstance();
+       // moviesRepository = MoviesRepository.getInstance();
 
         //----------------미리보기----------------------
         mPreviewRecyclerView=view.findViewById(R.id.home_recycler_view);
@@ -60,49 +63,60 @@ public class HomeFrag extends Fragment {
         //----------------YOUTUBE VIEW-------------------
         mTrailerList=new ArrayList<>();
 
-
-
-
-
         getMovies();
 
         return view;
     }
 
-    private void getGenres() {
-        moviesRepository.getGenres(new OnGetGenresCallback() {
-            @Override
-            public void onSuccess(List<Genre> genres) {
-
-            }
-
-            @Override
-            public void onError() {
-                showError();
-            }
-        });
-    }
+//    private void getGenres() {
+//        moviesRepository.getGenres(new OnGetGenresCallback() {
+//            @Override
+//            public void onSuccess(List<Genre> genres) {
+//
+//            }
+//
+//            @Override
+//            public void onError() {
+//                showError();
+//            }
+//        });
+//    }
 
     private void getMovies() {
-        moviesRepository.getMovies(new OnGetMoviesCallback() {
-            @Override
-            public void onSuccess(List<Movie> movies) {
-                adapter = new MoviesAdapter(movies);
-                mPreviewAdapter=new PreviewAdapter(movies);
-                moviesList.setAdapter(adapter);
-                mPreviewRecyclerView.setAdapter(mPreviewAdapter);
-            }
 
-            @Override
-            public void onError() {
-                showError();
-            }
-        });
+        MoviesRepository moviesRepository=new MoviesRepository(this);
+        moviesRepository.getMovies();
+//
+//        moviesRepository.getMovies(new OnGetMoviesCallback() {
+//            @Override
+//            public void onSuccess(List<MovieResponse> movies) {
+//                adapter = new MoviesAdapter(movies);
+//                mPreviewAdapter=new PreviewAdapter(movies);
+//                moviesList.setAdapter(adapter);
+//                mPreviewRecyclerView.setAdapter(mPreviewAdapter);
+//            }
+//
+//            @Override
+//            public void onError() {
+//                showError();
+//            }
+//        });
     }
 
-
-
     private void showError() {
-        Toast.makeText(getContext(), "Please check your internet connection.", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getContext(), " getString(R.string.network_error", Toast.LENGTH_LONG).show();
+    }
+    @Override
+    public void onSuccess(List<MovieResponse> movies) {
+        adapter = new MoviesAdapter(movies);
+        mPreviewAdapter=new PreviewAdapter(movies);
+        moviesList.setAdapter(adapter);
+        mPreviewRecyclerView.setAdapter(mPreviewAdapter);
+    }
+
+    @Override
+    public void onError() {
+
+        showError();
     }
 }

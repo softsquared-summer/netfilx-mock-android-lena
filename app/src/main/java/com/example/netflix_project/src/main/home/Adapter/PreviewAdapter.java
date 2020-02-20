@@ -13,16 +13,16 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.netflix_project.R;
 import com.example.netflix_project.src.main.models.Genre;
-import com.example.netflix_project.src.main.models.Movie;
+import com.example.netflix_project.src.main.models.MovieResponse;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class PreviewAdapter extends RecyclerView.Adapter<PreviewAdapter.MovieViewHolder> {
-    private List<Movie> movies;
+    private List<MovieResponse> movies;
     private String IMAGE_BASE_URL = "http://image.tmdb.org/t/p/w500";
 
-    public PreviewAdapter(List<Movie> movies) {
+    public PreviewAdapter(List<MovieResponse> movies) {
         this.movies = movies;
 
     }
@@ -54,11 +54,11 @@ public class PreviewAdapter extends RecyclerView.Adapter<PreviewAdapter.MovieVie
           //  tv_preview_title=itemView.findViewById(R.id.home_iv_preview_title);
         }
 
-        public void bind(Movie movie) {
+        public void bind(MovieResponse movie) {
 
 
             Glide.with(itemView)
-                    .load(IMAGE_BASE_URL + movie.getPosterPath())
+                    .load(IMAGE_BASE_URL + movie.getPosterUrl())
                     .apply(RequestOptions.placeholderOf(R.color.colorPrimary))
                     .apply(new RequestOptions().circleCrop())
                     .into(preview);

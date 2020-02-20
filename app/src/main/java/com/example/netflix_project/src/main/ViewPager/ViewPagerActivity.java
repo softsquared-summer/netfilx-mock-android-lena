@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.ActionBar;
@@ -29,11 +31,20 @@ public class ViewPagerActivity extends AppCompatActivity {
     Toolbar mToolbar;
     ViewPager mViewPager;
     ImageView mBackButton;
+    Animation tranlateLeftAnim;
+    Animation tranlateRightAnim;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_viewpager);
+
+        //애니메이션
+        tranlateLeftAnim = AnimationUtils.loadAnimation(this,R.anim.translate_left);
+        tranlateRightAnim = AnimationUtils.loadAnimation(this,R.anim.translate_right);
+
+
 
         ///툴바 커스텀
         mToolbar=findViewById(R.id.first_toolbar);

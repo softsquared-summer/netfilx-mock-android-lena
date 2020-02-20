@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/membership_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_Clear" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#0050FE"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:layout_marginTop="20dp"
+
+        >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_info_white"
+            android:layout_weight="2"
+            android:layout_gravity="center"
+            >
+
+        </ImageView>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorWhite"
+            android:text="스탠다드 멤버쉽을 한 달간 이용해 보세요.\n무료입니다."
+            android:layout_weight="9"
+            android:textSize="18sp"
+
+            >
+
+        </TextView>
+
+    </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2/3단계"
+            android:textColor="@color/colorBlack"
+            android:layout_marginTop="20dp"
+            >
+        </TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="지금 가입하고 한 달 동안 무료로 이용하세요."
+            android:textColor="@color/colorBlack"
+            android:textSize="20sp"
+            android:layout_marginBottom="20dp"
+
+            >
+        </TextView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Netflix 가입, 복잡하지 않아요! 복잡한 단계는 모두\n없앴습니다."
+            android:textColor="@color/colorBlack"
+            android:textSize="18sp"
+            android:layout_marginBottom="20dp"
+
+            ></TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="계정을 등록하세요"
+            android:layout_marginBottom="10dp"
+            android:textColor="@color/colorBlack"
+            android:textSize="20sp"
+
+            >
+
+        </TextView>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/EditTextThemeSignUp"
+            android:id="@+id/sign_text_input_email"
+          app:errorEnabled="true"
+
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/sign_et_email"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/btn_account"
+                android:hint="@string/sign_id_hint"
+                android:textColor="@color/colorBlack"
+                android:textSize="15dp"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:inputType="textEmailAddress"
+                >
+
+            </com.google.android.material.textfield.TextInputEditText>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/EditTextThemeSignUp"
+            android:id="@+id/sign_text_input_password"
+           app:errorEnabled="true"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/sign_et_pass"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/btn_account"
+                android:hint="@string/pass_hint"
+                android:inputType="textPassword"
+                android:textColor="@color/colorBlack"
+                android:textSize="15dp"
+                android:maxLines="1"
+                android:singleLine="true"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                >
+
+            </CheckBox>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="예, Netflix 특별 할인 알림 메일을 보내주세요."
+                android:textColor="@color/colorBlack"
+                android:id="@+id/sign_checkbox"
+                >
+
+            </TextView>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/sign_btn_signup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/empty_space"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:background="@color/color_NetflixRed"
+            android:text="가입"
+            android:textColor="@color/colorWhite"
+            android:onClick="onSignUpClick"
+            >
+
+        </Button>
+    </LinearLayout>
+
+
+</LinearLayout>

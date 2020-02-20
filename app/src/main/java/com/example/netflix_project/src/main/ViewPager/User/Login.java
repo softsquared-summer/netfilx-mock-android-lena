@@ -13,6 +13,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.netflix_project.R;
+import com.example.netflix_project.src.BaseActivity;
+import com.example.netflix_project.src.main.ViewPager.User.interfaces.LoginActivityView;
 import com.example.netflix_project.src.main.ViewPager.User.interfaces.UserApi;
 import com.example.netflix_project.src.main.ViewPager.User.models.LoginResponse;
 import com.example.netflix_project.src.main.ViewPager.User.models.UserResponse;
@@ -26,7 +28,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class Login extends AppCompatActivity {
+public class Login extends BaseActivity implements LoginActivityView {
 
     TextInputEditText mEmail, mPassword;
     Button mLoginButton;
@@ -56,30 +58,39 @@ public class Login extends AppCompatActivity {
 
     }
 
-    public void LoginConfirm(){
+//    public void LoginConfirm(){
+//        final String email=mEmail.getText().toString();
+//        final String password=mPassword.getText().toString();
+//
+//                //reauest Body로 보낼 Map<Sring,String>정의
+//        HashMap<String, String> requestBody = new HashMap<String, String>();
+//        requestBody.put("id", email);
+//        requestBody.put("pw", password);
+//
+//        LoginService.getService().postLogin(requestBody).enqueue(new Callback<LoginResponse>() {
+//            @Override
+//            public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
+//              LoginResponse result=response.body();
+//                Toast.makeText(getApplicationContext(),result.getMessage(), Toast.LENGTH_SHORT).show();
+//            }
+//
+//            @Override
+//            public void onFailure(Call<LoginResponse> call, Throwable t) {
+//                Toast.makeText(getApplicationContext(),email+" "+password, Toast.LENGTH_SHORT).show();
+//            }
+//        });
+//
+//
+//
+//    }
+
+    private void tryPostLogin(){
+        showProgressDialog();
         final String email=mEmail.getText().toString();
         final String password=mPassword.getText().toString();
 
-                //reauest Body로 보낼 Map<Sring,String>정의
-        HashMap<String, String> requestBody = new HashMap<String, String>();
-        requestBody.put("id", email);
-        requestBody.put("pw", password);
-
-        LoginService.getService().postLogin(requestBody).enqueue(new Callback<LoginResponse>() {
-            @Override
-            public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
-              LoginResponse result=response.body();
-                Toast.makeText(getApplicationContext(),result.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onFailure(Call<LoginResponse> call, Throwable t) {
-                Toast.makeText(getApplicationContext(),email+" "+password, Toast.LENGTH_SHORT).show();
-            }
-        });
-
-
-
+        LoginService loginService=new LoginService(this);
+        loginService.postLogin(email,password);
     }
     private boolean validateEmail(){
         String emailInput=mEmailTextInput.getEditText().getText().toString().trim();
@@ -116,10 +127,29 @@ public class Login extends AppCompatActivity {
        validateEmail();
 
        if(validateEmail()&&validatePass())
-           LoginConfirm();
+           tryPostLogin();
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.slide_in_right,R.anim.translate_right);
     }
 
     public void onBackClick(View view){
+
         onBackPressed();
+    }
+
+    @Override
+    public void validateSuccess(String text) {
+        hideProgressDialog();
+        showCustomToast(text);
+    }
+
+    @Override
+    public void validateFailure(String message) {
+        hideProgressDialog();
+        showCustomToast(message == null || message.isEmpty() ? getString(R.string.network_error) : message);
     }
 }

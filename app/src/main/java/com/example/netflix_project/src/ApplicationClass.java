@@ -5,6 +5,9 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 import com.example.netflix_project.config.XAccessTokenInterceptor;
+import com.example.netflix_project.src.main.ViewPager.User.interfaces.UserApi;
+import com.example.netflix_project.src.main.interfaces.NetflixApi;
+import com.example.netflix_project.src.main.models.MoviesRepository;
 
 import java.text.SimpleDateFormat;
 import java.util.Locale;
@@ -19,10 +22,6 @@ public class ApplicationClass extends Application {
     public static MediaType MEDIA_TYPE_JSON = MediaType.parse("application/json; charset=uft-8");
     public static MediaType MEDIA_TYPE_JPEG = MediaType.parse("image/jpeg");
 
-    // 테스트 서버 주소
-    public static String BASE_URL = "http://apis.newvement.com/";
-    // 실서버 주소
-//    public static String BASE_URL = "https://template.softsquared.com/";
 
     public static SharedPreferences sSharedPreferences = null;
 
@@ -47,21 +46,57 @@ public class ApplicationClass extends Application {
         }
     }
 
-    public static Retrofit getRetrofit() {
-        if (retrofit == null) {
-            OkHttpClient client = new OkHttpClient.Builder()
-                    .readTimeout(5000, TimeUnit.MILLISECONDS)
-                    .connectTimeout(5000, TimeUnit.MILLISECONDS)
-                    .addNetworkInterceptor(new XAccessTokenInterceptor()) // JWT 자동 헤더 전송
-                    .build();
+//    public static Retrofit getRetrofit() {
+//        if (retrofit == null) {
+//            OkHttpClient client = new OkHttpClient.Builder()
+//                    .readTimeout(5000, TimeUnit.MILLISECONDS)
+//                    .connectTimeout(5000, TimeUnit.MILLISECONDS)
+//                    .addNetworkInterceptor(new XAccessTokenInterceptor()) // JWT 자동 헤더 전송
+//                    .build();
+//
+//            retrofit = new Retrofit.Builder()
+//                    .baseUrl(BASE_URL)
+//                    .client(client)
+//                    .addConverterFactory(GsonConverterFactory.create())
+//                    .build();
+//        }
+//
+//        return retrofit;
+//    }
 
+    //USER SERVICE
+
+    public static final String BaseUrl = "http://lena.seohyunguk.me/";
+    private static UserApi userApi = null;
+
+
+    public static UserApi getService() {
+
+        if (userApi == null) {
             retrofit = new Retrofit.Builder()
-                    .baseUrl(BASE_URL)
-                    .client(client)
+                    .baseUrl(BaseUrl)
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
+            userApi = retrofit.create(UserApi.class);
         }
 
-        return retrofit;
+        return userApi;
+
+    }
+
+    //MOVIE SERVICE
+    private static NetflixApi mNetflixApi = null;
+
+    public static NetflixApi getMovieService() {
+        if (mNetflixApi == null) {
+            Retrofit retrofit = new Retrofit.Builder()
+                    .baseUrl(BaseUrl)
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+
+            mNetflixApi = retrofit.create(NetflixApi.class);
+        }
+
+        return mNetflixApi;
     }
 }

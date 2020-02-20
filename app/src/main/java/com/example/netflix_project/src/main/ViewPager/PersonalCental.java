@@ -62,6 +62,13 @@ public class PersonalCental extends AppCompatActivity {
         startActivity(intent);
     }
 
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.slide_in_right,R.anim.translate_right);
+    }
+
     public void onBackClickP(View view){
         onBackPressed();
     }

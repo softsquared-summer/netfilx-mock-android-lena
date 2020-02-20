@@ -13,17 +13,17 @@ import com.bumptech.glide.request.RequestOptions;
 
 import com.example.netflix_project.R;
 import com.example.netflix_project.src.main.models.Genre;
-import com.example.netflix_project.src.main.models.Movie;
+import com.example.netflix_project.src.main.models.MovieResponse;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewHolder> {
-    private List<Movie> movies;
+    private List<MovieResponse> movies;
     private List<Genre> allGenres;
     private String IMAGE_BASE_URL = "http://image.tmdb.org/t/p/w500";
 
-    public MoviesAdapter(List<Movie> movies) {
+    public MoviesAdapter(List<MovieResponse> movies) {
         this.movies = movies;
         this.allGenres = allGenres;
     }
@@ -54,27 +54,27 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
 
         }
 
-        public void bind(Movie movie) {
+        public void bind(MovieResponse movie) {
 
             Glide.with(itemView)
-                    .load(IMAGE_BASE_URL + movie.getPosterPath())
+                    .load(IMAGE_BASE_URL + movie.getPosterUrl())
                     .apply(RequestOptions.placeholderOf(R.color.colorPrimary))
                     .into(poster);
 
 
         }
 
-        private String getGenres(List<Integer> genreIds) {
-            List<String> movieGenres = new ArrayList<>();
-            for (Integer genreId : genreIds) {
-                for (Genre genre : allGenres) {
-                    if (genre.getId() == genreId) {
-                        movieGenres.add(genre.getName());
-                        break;
-                    }
-                }
-            }
-            return TextUtils.join(", ", movieGenres);
-        }
+//        private String getGenres(List<Integer> genreIds) {
+//            List<String> movieGenres = new ArrayList<>();
+//            for (Integer genreId : genreIds) {
+//                for (Genre genre : allGenres) {
+//                    if (genre.getId() == genreId) {
+//                        movieGenres.add(genre.getName());
+//                        break;
+//                    }
+//                }
+//            }
+//            return TextUtils.join(", ", movieGenres);
+//        }
     }
 }
