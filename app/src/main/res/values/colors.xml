@@ -1,19 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="colorBottomNavi">#121212</color>
     <color name="colorSelectItem">#FDFDFD</color>
     <color name="colorItem">#5D5D5D</color>
-    <color name="colorNetflicBack">#1A1A1A</color>
+    <color name="colorNetflicBack">#141414</color>
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorBlack">#000000</color>
     <color name="colorOrangeWhite">#F1DBBA</color>
     <color name="colorTitleSample">#E96DA1</color>
-    <color name="color_NetflixRed">#EE1C25</color>
+    <color name="color_NetflixRed">#E50914</color>
     <color name="color_Clear">#00ff0000</color>
     <color name="Color_login_on">#7E7E7E</color>
     <color name="Color_login_off">#262626</color>
     <color name="ColorBlue">#0071EC</color>
+    <color name="ColorMatchPercent">#46d369</color>
+    <color name="ColorMovieRelease">#999999</color>
+    <color name="ColorRunningTime">#999999</color>
+    <color name="ColorSearachItemBack">#1e1e1e</color>
+
 </resources>

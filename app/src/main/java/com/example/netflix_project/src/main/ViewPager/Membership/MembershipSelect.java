@@ -1,9 +1,6 @@
 package com.example.netflix_project.src.main.ViewPager.Membership;
 
-import android.app.TabActivity;
 import android.content.Intent;
-import android.graphics.Color;
-import android.media.Image;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
@@ -17,7 +14,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.example.netflix_project.R;
-import com.google.android.material.tabs.TabLayout;
 
 public class MembershipSelect extends AppCompatActivity {
 
@@ -130,5 +126,10 @@ public class MembershipSelect extends AppCompatActivity {
 //        tabHost.getTabWidget().getChildAt(2).getLayoutParams().height=(height*15)/150;
 //
 
+    }
+
+    public  void onClickNext2(View view){
+        Intent intent=new Intent(getApplicationContext(), MembershipAccount.class);
+        startActivity(intent);
     }
 }

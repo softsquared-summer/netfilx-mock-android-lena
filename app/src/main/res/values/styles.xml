@@ -34,6 +34,16 @@
         <item name="colorControlActivated">@color/colorBlack</item>
         <item name="colorControlHighlight">@color/Color_login_on</item>
         <item name="android:textColorHint">@color/Color_login_on</item>
+    </style>
+
+    <!--투명-->
+    <style name="Theme.AppCompat.Translucent">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation</item>
+        <item name="android:background">#1A000000</item>
+        <item name="windowNoTitle">true</item>
 
     </style>
 

@@ -1,43 +1,42 @@
 package com.example.netflix_project.src.main.home;
 
+import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.IntegerRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.netflix_project.R;
-import com.example.netflix_project.src.BaseActivity;
-import com.example.netflix_project.src.main.ViewPager.User.LoginService;
 import com.example.netflix_project.src.main.home.Adapter.MoviesAdapter;
 import com.example.netflix_project.src.main.home.Adapter.PreviewAdapter;
-import com.example.netflix_project.src.main.interfaces.OnGetGenresCallback;
-import com.example.netflix_project.src.main.models.MovieResponse;
+import com.example.netflix_project.src.main.interfaces.OnGetNewMoviesCallback;
+import com.example.netflix_project.src.main.models.Movie;
 import com.example.netflix_project.src.main.models.MoviesRepository;
 import com.example.netflix_project.src.main.interfaces.OnGetMoviesCallback;
-import com.example.netflix_project.src.main.models.Genre;
 
 import com.example.netflix_project.src.main.models.Trailer;
-import com.google.android.youtube.player.YouTubePlayerFragment;
-import com.google.android.youtube.player.YouTubePlayerSupportFragment;
 import com.google.android.youtube.player.YouTubePlayerView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class HomeFrag extends Fragment implements OnGetMoviesCallback {
+public class HomeFrag extends Fragment implements OnGetMoviesCallback, OnGetNewMoviesCallback {
 
     private View view;
-    private RecyclerView moviesList, mPreviewRecyclerView;
-    private MoviesAdapter adapter;
+    private RecyclerView moviesList, mPreviewRecyclerView, mNewMvRecycler;
+    private MoviesAdapter adapter, mAdapterNew;
     private PreviewAdapter mPreviewAdapter;
     private MoviesRepository moviesRepository;
     //youtube
@@ -46,11 +45,31 @@ public class HomeFrag extends Fragment implements OnGetMoviesCallback {
     private static final String API_KEY = "AIzaSyCaZ_fSo1DIF7EV2tD6uwbKWtTDr7iI10c";
     private static String VIDEO_ID="xitHF0IPJSQ";
 
+    private ImageView mMainPoster;
+    private Button mMovieBtn;
+    private TextView mMovie;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view=inflater.inflate(R.layout.frag_home,container,false);
-       // moviesRepository = MoviesRepository.getInstance();
+
+
+        //----------------영화 click------------------
+        mMovieBtn=view.findViewById(R.id.home_btn_movie);
+        mMovie=view.findViewById(R.id.MOVIE);
+        mMovieBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getContext(),MovieSelect.class);;
+                startActivity(intent);
+
+            }
+        });
+
+        //----------------메인 영화 뷰 -----------------
+        mMainPoster=view.findViewById(R.id.home_iv_main_poster);
+        mMainPoster.setImageResource(R.drawable.poster_sample);
 
         //----------------미리보기----------------------
         mPreviewRecyclerView=view.findViewById(R.id.home_recycler_view);
@@ -60,59 +79,45 @@ public class HomeFrag extends Fragment implements OnGetMoviesCallback {
         moviesList = view.findViewById(R.id.movies_list);
         moviesList.setLayoutManager(new GridLayoutManager(getContext(), 1,GridLayoutManager.HORIZONTAL, false));
 
+        //-------------신규 콘텐츠-------------------
+
+        mNewMvRecycler=view.findViewById(R.id.home_recycler_new);
+        mNewMvRecycler.setLayoutManager(new GridLayoutManager(getContext(), 1,GridLayoutManager.HORIZONTAL, false));
+
         //----------------YOUTUBE VIEW-------------------
         mTrailerList=new ArrayList<>();
 
         getMovies();
 
+
         return view;
     }
 
-//    private void getGenres() {
-//        moviesRepository.getGenres(new OnGetGenresCallback() {
-//            @Override
-//            public void onSuccess(List<Genre> genres) {
-//
-//            }
-//
-//            @Override
-//            public void onError() {
-//                showError();
-//            }
-//        });
-//    }
-
     private void getMovies() {
 
-        MoviesRepository moviesRepository=new MoviesRepository(this);
-        moviesRepository.getMovies();
-//
-//        moviesRepository.getMovies(new OnGetMoviesCallback() {
-//            @Override
-//            public void onSuccess(List<MovieResponse> movies) {
-//                adapter = new MoviesAdapter(movies);
-//                mPreviewAdapter=new PreviewAdapter(movies);
-//                moviesList.setAdapter(adapter);
-//                mPreviewRecyclerView.setAdapter(mPreviewAdapter);
-//            }
-//
-//            @Override
-//            public void onError() {
-//                showError();
-//            }
-//        });
+        MoviesRepository moviesRepository=new MoviesRepository(this,this);
+        moviesRepository.getPopularMovies();
+        moviesRepository.getNewMovies();
+
     }
 
     private void showError() {
         Toast.makeText(getContext(), " getString(R.string.network_error", Toast.LENGTH_LONG).show();
     }
     @Override
-    public void onSuccess(List<MovieResponse> movies) {
-        adapter = new MoviesAdapter(movies);
-        mPreviewAdapter=new PreviewAdapter(movies);
+    public void onPopularMovieSuccess(List<Movie> movies) {
+        adapter = new MoviesAdapter(getContext(),movies);
+        mPreviewAdapter=new PreviewAdapter(getContext(),movies);
         moviesList.setAdapter(adapter);
         mPreviewRecyclerView.setAdapter(mPreviewAdapter);
     }
+
+    @Override
+    public void onNewMovieSuccess(List<Movie> movies) {
+        mAdapterNew=new MoviesAdapter(getContext(),movies);
+        mNewMvRecycler.setAdapter(mAdapterNew);
+    }
+
 
     @Override
     public void onError() {

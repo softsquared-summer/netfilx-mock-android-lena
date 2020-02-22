@@ -1,5 +1,6 @@
 package com.example.netflix_project.src.main.ViewPager.Membership;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -11,8 +12,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.example.netflix_project.R;
+import com.example.netflix_project.src.BaseActivity;
 
-public class MembershipFree extends AppCompatActivity {
+public class MembershipFree extends BaseActivity {
 
     Toolbar mToolbar;
 
@@ -30,6 +32,12 @@ public class MembershipFree extends AppCompatActivity {
         actionBar.setDisplayShowTitleEnabled(false);
         actionBar.setCustomView(viewToolbar, new ActionBar.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, Gravity.CENTER));
 
+
+    }
+
+    public void onClickNext(View view){
+        Intent intent=new Intent(getApplicationContext(),MembershipSelect.class);
+        startActivity(intent);
 
     }
 }

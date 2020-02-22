@@ -1,13 +1,13 @@
 package com.example.netflix_project.src.main.interfaces;
 
 
-import com.example.netflix_project.src.main.models.MovieResponse;
+import com.example.netflix_project.src.main.models.Movie;
 
 import java.util.List;
 
 public interface OnGetMoviesCallback {
 
-    void onSuccess(List<MovieResponse> movies);
+    void onPopularMovieSuccess(List<Movie> movies);
 
     void onError();
 }

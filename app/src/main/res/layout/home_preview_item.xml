@@ -15,7 +15,7 @@
             android:layout_height="120dp"
             android:src="@drawable/ic_wb_cloudy_pink"
             android:id="@+id/home_iv_preview"
-            android:background="@color/colorNetflicBack"
+            android:background="@drawable/circle_border"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             >

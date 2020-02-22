@@ -38,5 +38,9 @@ public class BaseActivity extends AppCompatActivity {
         hideProgressDialog();
     }
 
+    public void showError() {
+        Toast.makeText(getApplicationContext(), " getString(R.string.network_error", Toast.LENGTH_LONG).show();
+    }
+
 
 }

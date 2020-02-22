@@ -18,6 +18,7 @@ import com.example.netflix_project.src.main.ViewPager.User.interfaces.LoginActiv
 import com.example.netflix_project.src.main.ViewPager.User.interfaces.UserApi;
 import com.example.netflix_project.src.main.ViewPager.User.models.LoginResponse;
 import com.example.netflix_project.src.main.ViewPager.User.models.UserResponse;
+import com.example.netflix_project.src.main.mainpage.MainPage;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -40,6 +41,7 @@ public class Login extends BaseActivity implements LoginActivityView {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.netflix_login);
+
         mEmail=findViewById(R.id.login_et_email);
         mPassword=findViewById(R.id.login_et_pass);
         mHelpTv=findViewById(R.id.login_tv_help);
@@ -52,45 +54,19 @@ public class Login extends BaseActivity implements LoginActivityView {
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
 
 
-
-
-
-
     }
 
-//    public void LoginConfirm(){
-//        final String email=mEmail.getText().toString();
-//        final String password=mPassword.getText().toString();
-//
-//                //reauest Body로 보낼 Map<Sring,String>정의
-//        HashMap<String, String> requestBody = new HashMap<String, String>();
-//        requestBody.put("id", email);
-//        requestBody.put("pw", password);
-//
-//        LoginService.getService().postLogin(requestBody).enqueue(new Callback<LoginResponse>() {
-//            @Override
-//            public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
-//              LoginResponse result=response.body();
-//                Toast.makeText(getApplicationContext(),result.getMessage(), Toast.LENGTH_SHORT).show();
-//            }
-//
-//            @Override
-//            public void onFailure(Call<LoginResponse> call, Throwable t) {
-//                Toast.makeText(getApplicationContext(),email+" "+password, Toast.LENGTH_SHORT).show();
-//            }
-//        });
-//
-//
-//
-//    }
+    //이메일 형식 비었는지 패스워드 몇자 이상인지
 
     private void tryPostLogin(){
-        showProgressDialog();
+
         final String email=mEmail.getText().toString();
         final String password=mPassword.getText().toString();
-
+        showProgressDialog();
         LoginService loginService=new LoginService(this);
         loginService.postLogin(email,password);
+
+
     }
     private boolean validateEmail(){
         String emailInput=mEmailTextInput.getEditText().getText().toString().trim();
@@ -142,14 +118,18 @@ public class Login extends BaseActivity implements LoginActivityView {
     }
 
     @Override
-    public void validateSuccess(String text) {
-        hideProgressDialog();
-        showCustomToast(text);
+    public void validateSuccess(boolean success, String message) {
+        if(success){
+            Intent intent=new Intent(getApplicationContext(),MainPage.class);
+            startActivity(intent);
+        }
+        else
+            showCustomToast(message);
     }
 
     @Override
     public void validateFailure(String message) {
-        hideProgressDialog();
+
         showCustomToast(message == null || message.isEmpty() ? getString(R.string.network_error) : message);
     }
 }

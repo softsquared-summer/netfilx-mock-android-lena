@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#D9000000"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="100dp"
+        android:layout_gravity="center"
+        android:layout_centerVertical="true"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="전체"
+            android:textColor="@color/ColorMovieRelease"
+            android:textSize="15sp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"
+            android:id="@+id/all"
+            android:onClick="onClickAll"
+            >
+
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TV 프로그램"
+            android:textColor="@color/ColorMovieRelease"
+            android:textSize="15sp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"
+            android:id="@+id/TV"
+            >
+
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="영화"
+            android:textColor="@color/ColorMovieRelease"
+            android:textSize="15sp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"
+            android:id="@+id/MOVIE"
+            android:onClick="onClickMovie"
+
+            >
+
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="내가찜한 콘텐츠"
+            android:textColor="@color/ColorMovieRelease"
+            android:textSize="15sp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"
+            android:id="@+id/CONTENT"
+            >
+
+        </TextView>
+
+
+
+
+    </LinearLayout>
+
+
+    <ImageView
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@drawable/ic_cancel_"
+        android:layout_gravity="center"
+        android:id="@+id/menu_iv_close"
+        android:clickable="true"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="20dp"
+        android:onClick="onClickClose"
+        >
+
+    </ImageView>
+
+</RelativeLayout>

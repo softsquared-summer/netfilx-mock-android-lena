@@ -7,7 +7,7 @@ import java.util.List;
 
 public class GenresResponse {
 
-    @SerializedName("genres")
+    @SerializedName("result")
     @Expose
     private List<Genre> genres;
 

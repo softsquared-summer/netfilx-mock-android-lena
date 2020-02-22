@@ -20,7 +20,7 @@
         android:networkSecurityConfig="@xml/network_security_config"
         >
 
-        <activity android:name=".src.main.mainpage.MainPage">
+        <activity android:name=".src.main.SplashActivity.Splash">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,17 +29,27 @@
             </intent-filter>
 
         </activity>
-
+        <activity android:name=".src.main.MovieDetail"/>
         <activity android:name=".src.main.ViewPager.PersonalCental"></activity>
-<!--        <activity android:name=".src.main.ViewPager.User.Login"-->
-<!--            android:windowSoftInputMode="adjustResize"-->
-<!--            ></activity>-->
+        <activity android:name=".src.main.home.GenreList"
+                  android:theme="@style/Theme.AppCompat.Translucent"/>
+        <activity android:name=".src.main.home.MovieGenreActivity"/>
+        <activity android:name=".src.main.home.HomeMenu"/>
+        <activity android:name=".src.main.ViewPager.ViewPagerActivity"/>
 
-        <activity android:name=".src.main.SplashActivity.Splash"></activity>
-
+        <activity android:name=".src.main.ViewPager.User.Login"
+            android:windowSoftInputMode="adjustResize"
+            ></activity>
+        <activity android:name=".src.main.home.MovieSelect"/>
+        <activity android:name=".src.main.mainpage.MainPage"/>
         <activity android:name=".src.main.ViewPager.Membership.Tab1"></activity>
         <activity android:name=".src.main.ViewPager.Membership.Tab2"/>
         <activity android:name=".src.main.ViewPager.Membership.Tab3"/>
+        <activity android:name=".src.main.ViewPager.Membership.MembershipFree"/>
+        <activity android:name=".src.main.ViewPager.Membership.MembershipSelect"/>
+        <activity android:name=".src.main.ViewPager.Membership.MembershipAccount"/>
+        <activity android:name=".src.main.ViewPager.SignUp.SignUp"/>
+
 
 
 

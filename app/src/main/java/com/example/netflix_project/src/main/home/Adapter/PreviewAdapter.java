@@ -1,6 +1,7 @@
 package com.example.netflix_project.src.main.home.Adapter;
 
-import android.text.TextUtils;
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,18 +13,20 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.netflix_project.R;
-import com.example.netflix_project.src.main.models.Genre;
-import com.example.netflix_project.src.main.models.MovieResponse;
+import com.example.netflix_project.src.main.MovieDetail;
+import com.example.netflix_project.src.main.models.Movie;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class PreviewAdapter extends RecyclerView.Adapter<PreviewAdapter.MovieViewHolder> {
-    private List<MovieResponse> movies;
+    private List<Movie> movies;
     private String IMAGE_BASE_URL = "http://image.tmdb.org/t/p/w500";
+    private Context mContext;
 
-    public PreviewAdapter(List<MovieResponse> movies) {
+    public PreviewAdapter(Context mContext, List<Movie> movies) {
         this.movies = movies;
+        this.mContext=mContext;
+
 
     }
 
@@ -31,11 +34,22 @@ public class PreviewAdapter extends RecyclerView.Adapter<PreviewAdapter.MovieVie
     public MovieViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.home_preview_item, parent, false);
         return new MovieViewHolder(view);
+
+
     }
 
     @Override
-    public void onBindViewHolder(MovieViewHolder holder, int position) {
+    public void onBindViewHolder(MovieViewHolder holder, final int position) {
         holder.bind(movies.get(position));
+
+        holder.preview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(mContext, MovieDetail.class);
+                intent.putExtra("movie_no",movies.get(position).getNo());
+                mContext.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -54,11 +68,12 @@ public class PreviewAdapter extends RecyclerView.Adapter<PreviewAdapter.MovieVie
           //  tv_preview_title=itemView.findViewById(R.id.home_iv_preview_title);
         }
 
-        public void bind(MovieResponse movie) {
+        public void bind(Movie movie) {
 
 
             Glide.with(itemView)
                     .load(IMAGE_BASE_URL + movie.getPosterUrl())
+                    .error(R.drawable.ic_error_white)
                     .apply(RequestOptions.placeholderOf(R.color.colorPrimary))
                     .apply(new RequestOptions().circleCrop())
                     .into(preview);

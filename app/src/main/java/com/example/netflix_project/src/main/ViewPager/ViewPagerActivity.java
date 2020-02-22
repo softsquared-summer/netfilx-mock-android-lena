@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.ActionBar;
@@ -19,8 +20,10 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.example.netflix_project.R;
 
+import com.example.netflix_project.src.main.ViewPager.Membership.MembershipFree;
 import com.example.netflix_project.src.main.ViewPager.User.Login;
 import com.example.netflix_project.src.main.ViewPager.models.MyPagerAdapter;
+import com.google.android.material.button.MaterialButtonToggleGroup;
 
 import me.relex.circleindicator.CircleIndicator;
 
@@ -33,7 +36,7 @@ public class ViewPagerActivity extends AppCompatActivity {
     ImageView mBackButton;
     Animation tranlateLeftAnim;
     Animation tranlateRightAnim;
-
+    Button mFreeButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,7 +77,15 @@ public class ViewPagerActivity extends AppCompatActivity {
         CircleIndicator indicator = (CircleIndicator) findViewById(R.id.view_pager_indicator);
         indicator.setViewPager(mViewPager);
 
-
+        //30일 무료 이용
+        mFreeButton=findViewById(R.id.viewpager_btn_free_use);
+        mFreeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getApplicationContext(), MembershipFree.class);
+                startActivity(intent);
+            }
+        });
 
 
 

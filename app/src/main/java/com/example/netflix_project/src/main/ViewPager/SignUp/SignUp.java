@@ -1,5 +1,6 @@
 package com.example.netflix_project.src.main.ViewPager.SignUp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -15,12 +16,15 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.example.netflix_project.R;
 import com.example.netflix_project.src.BaseActivity;
+import com.example.netflix_project.src.main.ViewPager.User.Login;
 import com.example.netflix_project.src.main.ViewPager.User.LoginService;
 import com.example.netflix_project.src.main.ViewPager.User.interfaces.LoginActivityView;
 import com.example.netflix_project.src.main.ViewPager.User.models.LoginResponse;
+import com.example.netflix_project.src.main.mainpage.MainPage;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
+import java.nio.file.Path;
 import java.util.HashMap;
 
 import retrofit2.Call;
@@ -65,23 +69,31 @@ public class SignUp extends BaseActivity implements LoginActivityView {
 
 
     private void tryPostSign(){
-        showProgressDialog();
+
         final String email=mEmail.getText().toString();
         final String password=mPassword.getText().toString();
         final String name="test";
+        final String typeNo="1";
 
         LoginService loginService=new LoginService(this);
-        loginService.postSign(email,password,name);
+        loginService.postSign(email,password,name,typeNo);
     }
     @Override
-    public void validateSuccess(String text) {
-        hideProgressDialog();
-        showCustomToast(text);
+    public void validateSuccess(boolean success,String message) {
+
+
+        if (success) {
+            showCustomToast(message);
+            Intent intent=new Intent(getApplicationContext(), Login.class);
+            startActivity(intent);
+        }
+        else
+            showCustomToast(message);
     }
 
     @Override
     public void validateFailure(String message) {
-        hideProgressDialog();
+
         showCustomToast(message == null || message.isEmpty() ? getString(R.string.network_error) : message);
     }
 

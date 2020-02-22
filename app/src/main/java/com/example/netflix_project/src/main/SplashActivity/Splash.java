@@ -1,6 +1,5 @@
 package com.example.netflix_project.src.main.SplashActivity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -8,34 +7,30 @@ import android.os.Handler;
 import androidx.annotation.Nullable;
 
 import com.example.netflix_project.R;
-import com.example.netflix_project.src.main.mainpage.MainPage;
+import com.example.netflix_project.src.BaseActivity;
+import com.example.netflix_project.src.main.ViewPager.ViewPagerActivity;
 
-public class Splash extends Activity {
+public class Splash extends BaseActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_splash);
 
         Handler hd = new Handler();
         hd.postDelayed(new splashHandler(), 2000); // 2초 후에 hd handler 실행
 
 
-
     }
 
-    private class splashHandler implements Runnable{
-        public void run(){
-            startActivity(new Intent(getApplication(), MainPage.class));
+    private class splashHandler implements Runnable {
+        public void run() {
+
+            showProgressDialog();
+            startActivity(new Intent(getApplication(), ViewPagerActivity.class));
             Splash.this.finish();
         }
     }
-
-    public void onBackPressed() {
-        //초반 플래시 화면에서 넘어갈때 뒤로가기 버튼 못누르게 함
-    }
-
 
 
 }

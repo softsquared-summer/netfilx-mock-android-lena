@@ -1,6 +1,7 @@
 package com.example.netflix_project.src.main.home.Adapter;
 
-import android.text.TextUtils;
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,20 +13,20 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 
 import com.example.netflix_project.R;
+import com.example.netflix_project.src.main.MovieDetail;
 import com.example.netflix_project.src.main.models.Genre;
-import com.example.netflix_project.src.main.models.MovieResponse;
+import com.example.netflix_project.src.main.models.Movie;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewHolder> {
-    private List<MovieResponse> movies;
-    private List<Genre> allGenres;
+    private List<Movie> movies;
+    private Context mContext;
     private String IMAGE_BASE_URL = "http://image.tmdb.org/t/p/w500";
 
-    public MoviesAdapter(List<MovieResponse> movies) {
+    public MoviesAdapter( Context mContext,List<Movie> movies) {
         this.movies = movies;
-        this.allGenres = allGenres;
+        this.mContext=mContext;
     }
 
     @Override
@@ -35,8 +36,17 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
     }
 
     @Override
-    public void onBindViewHolder(MovieViewHolder holder, int position) {
+    public void onBindViewHolder(MovieViewHolder holder, final int position) {
         holder.bind(movies.get(position));
+
+        holder.poster.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(mContext, MovieDetail.class);
+                intent.putExtra("movie_no",movies.get(position).getNo());
+                mContext.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -54,12 +64,14 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
 
         }
 
-        public void bind(MovieResponse movie) {
+        public void bind(Movie movie) {
 
             Glide.with(itemView)
                     .load(IMAGE_BASE_URL + movie.getPosterUrl())
-                    .apply(RequestOptions.placeholderOf(R.color.colorPrimary))
+                    .apply(RequestOptions.placeholderOf(R.color.colorNetflicBack))
                     .into(poster);
+
+
 
 
         }

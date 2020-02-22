@@ -1,18 +1,13 @@
 package com.example.netflix_project.src.main;
 
 import android.os.Bundle;
-import android.view.View;
-import android.widget.TextView;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.netflix_project.R;
-import com.example.netflix_project.src.BaseActivity;
 import com.example.netflix_project.src.main.ViewPager.CircleIndicatorAni;
 import com.example.netflix_project.src.main.ViewPager.ViewPagerAdapter;
-import com.example.netflix_project.src.main.interfaces.MainActivityView;
 
 import java.util.ArrayList;
 import java.util.List;

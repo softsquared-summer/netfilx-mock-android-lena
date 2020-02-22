@@ -3,7 +3,7 @@ package com.example.netflix_project.src.main.models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class MovieResponse {
+public class Movie {
 
     @SerializedName("no")
     @Expose
@@ -47,6 +47,12 @@ public class MovieResponse {
     private String videoUrl;
 
 
+    @SerializedName("type")
+    @Expose
+    private String type;
+
+
+
 
     public String getOverview() {
         return overview;
@@ -88,4 +94,7 @@ public class MovieResponse {
         return videoUrl;
     }
 
+    public String getType() {
+        return type;
+    }
 }
