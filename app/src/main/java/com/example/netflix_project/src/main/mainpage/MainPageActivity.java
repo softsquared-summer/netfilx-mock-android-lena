@@ -5,30 +5,30 @@ import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.netflix_project.R;
-import com.example.netflix_project.src.main.add.AddFrag;
-import com.example.netflix_project.src.main.comingup.ComingUpFrag;
-import com.example.netflix_project.src.main.download.DownloadFrag;
-import com.example.netflix_project.src.main.home.HomeFrag;
-import com.example.netflix_project.src.main.search.SearchFrag;
+import com.example.netflix_project.src.BaseActivity;
+import com.example.netflix_project.src.main.add.AddActivity;
+import com.example.netflix_project.src.main.comingup.ComingUpActivity;
+import com.example.netflix_project.src.main.download.DownloadActivity;
+import com.example.netflix_project.src.main.home.HomeActivity;
+import com.example.netflix_project.src.main.search.SearchActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.bottomnavigation.LabelVisibilityMode;
 
-public class MainPage extends AppCompatActivity {
+public class MainPageActivity extends BaseActivity {
 
     private BottomNavigationView bottomNavigationView;
     private FragmentTransaction fragmentTransaction;
     private FragmentManager fragmentManager;
     BottomNavigationHelper bottomNavigationHelper;
-    private AddFrag mAddFrag;
-    private HomeFrag mHomeFrag;
-    private SearchFrag mSearchFrag;
-    private DownloadFrag mDownloadFrag;
-    private ComingUpFrag mComingupFrag;
+    private AddActivity mAddActivity;
+    private HomeActivity mHomeActivity;
+    private SearchActivity mSearchActivity;
+    private DownloadActivity mDownloadActivity;
+    private ComingUpActivity mComingupActivity;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -65,11 +65,11 @@ public class MainPage extends AppCompatActivity {
         });
 
         // 5개의 메뉴에 들어갈 Fragment들
-        mHomeFrag=new HomeFrag();
-        mAddFrag=new AddFrag();
-        mComingupFrag=new ComingUpFrag();
-        mDownloadFrag=new DownloadFrag();
-        mSearchFrag=new SearchFrag();
+        mHomeActivity =new HomeActivity();
+        mAddActivity =new AddActivity();
+        mComingupActivity =new ComingUpActivity();
+        mDownloadActivity =new DownloadActivity();
+        mSearchActivity =new SearchActivity();
 
         //첫 프래그먼트 화면을 HOME 으로 지정
         setFrag(0);
@@ -83,23 +83,23 @@ public class MainPage extends AppCompatActivity {
 
         switch (n){
             case 0:
-                fragmentTransaction.replace(R.id.main_frame,mHomeFrag);
+                fragmentTransaction.replace(R.id.main_frame, mHomeActivity);
                 fragmentTransaction.commit();
                 break;
             case 1:
-                fragmentTransaction.replace(R.id.main_frame,mSearchFrag);
+                fragmentTransaction.replace(R.id.main_frame, mSearchActivity);
                 fragmentTransaction.commit();
                 break;
             case 2:
-                fragmentTransaction.replace(R.id.main_frame,mComingupFrag);
+                fragmentTransaction.replace(R.id.main_frame, mComingupActivity);
                 fragmentTransaction.commit();
                 break;
             case 3:
-                fragmentTransaction.replace(R.id.main_frame,mDownloadFrag);
+                fragmentTransaction.replace(R.id.main_frame, mDownloadActivity);
                 fragmentTransaction.commit();
                 break;
             case 4:
-                fragmentTransaction.replace(R.id.main_frame,mAddFrag);
+                fragmentTransaction.replace(R.id.main_frame, mAddActivity);
                 fragmentTransaction.commit();
                 break;
 

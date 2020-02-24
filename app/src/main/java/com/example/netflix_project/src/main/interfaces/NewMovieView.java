@@ -5,7 +5,7 @@ import com.example.netflix_project.src.main.models.Movie;
 
 import java.util.List;
 
-public interface OnGetNewMoviesCallback {
+public interface NewMovieView {
 
     void onNewMovieSuccess(List<Movie> movies);
 

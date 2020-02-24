@@ -2,13 +2,7 @@ package com.example.netflix_project.src.main.models;
 
 import androidx.annotation.NonNull;
 
-import com.example.netflix_project.src.main.interfaces.OnGetGenresCallback;
-import com.example.netflix_project.src.main.interfaces.OnGetMoviesCallback;
-import com.example.netflix_project.src.main.interfaces.OnGetNewMoviesCallback;
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
-
-import java.util.List;
+import com.example.netflix_project.src.main.interfaces.GenreView;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -16,12 +10,12 @@ import retrofit2.Response;
 
 import static com.example.netflix_project.src.ApplicationClass.getMovieService;
 
-public class GenresResponsitory {
+public class GenresService {
 
-    private OnGetGenresCallback onGetGenresCallback;
+    private GenreView genreView;
 
-    public GenresResponsitory(final OnGetGenresCallback onGetGenresCallback){
-     this.onGetGenresCallback=onGetGenresCallback;
+    public GenresService(final GenreView genreView){
+     this.genreView = genreView;
     }
 
     //장르 리스트 조회
@@ -34,18 +28,18 @@ public class GenresResponsitory {
                         if (response.isSuccessful()) {
                             GenresResponse genresResponse = response.body();
                             if (genresResponse != null && genresResponse.getGenres() != null) {
-                                onGetGenresCallback.onSuccess(genresResponse.getGenres());
+                                genreView.onSuccess(genresResponse.getGenres());
                             } else {
-                                onGetGenresCallback.onError();
+                                genreView.onError();
                             }
                         } else {
-                            onGetGenresCallback.onError();
+                            genreView.onError();
                         }
                     }
 
                     @Override
                     public void onFailure(Call<GenresResponse> call, Throwable t) {
-                        onGetGenresCallback.onError();
+                        genreView.onError();
                     }
                 });
     }

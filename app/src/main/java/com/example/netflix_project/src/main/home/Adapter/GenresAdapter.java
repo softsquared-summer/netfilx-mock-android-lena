@@ -10,10 +10,13 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.netflix_project.R;
-import com.example.netflix_project.src.main.home.MovieGenreActivity;
+import com.example.netflix_project.src.main.home.GenreActivity;
+import com.example.netflix_project.src.main.home.GenrePageActivity;
 import com.example.netflix_project.src.main.models.Genre;
 
 import java.util.List;
+
+import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
 
 public class GenresAdapter extends RecyclerView.Adapter<GenresAdapter.GenreViewHolder> {
     private List<Genre> allGenres;
@@ -36,10 +39,10 @@ public class GenresAdapter extends RecyclerView.Adapter<GenresAdapter.GenreViewH
         holder.mGenreList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(mContext, MovieGenreActivity.class);
+                Intent intent=new Intent(mContext, GenrePageActivity.class);
                 intent.putExtra("genre_no",allGenres.get(position).getNo());
                 intent.putExtra("genre",allGenres.get(position).getDescription());
-                mContext.startActivity(intent);
+                mContext.startActivity(intent.addFlags(FLAG_ACTIVITY_NEW_TASK));
             }
         });
     }

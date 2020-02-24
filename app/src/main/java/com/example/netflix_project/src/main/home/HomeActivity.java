@@ -1,7 +1,6 @@
 package com.example.netflix_project.src.main.home;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,7 +10,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.IntegerRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -21,10 +19,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.netflix_project.R;
 import com.example.netflix_project.src.main.home.Adapter.MoviesAdapter;
 import com.example.netflix_project.src.main.home.Adapter.PreviewAdapter;
-import com.example.netflix_project.src.main.interfaces.OnGetNewMoviesCallback;
+import com.example.netflix_project.src.main.interfaces.NewMovieView;
 import com.example.netflix_project.src.main.models.Movie;
-import com.example.netflix_project.src.main.models.MoviesRepository;
-import com.example.netflix_project.src.main.interfaces.OnGetMoviesCallback;
+import com.example.netflix_project.src.main.models.MovieService;
+import com.example.netflix_project.src.main.interfaces.MovieView;
 
 import com.example.netflix_project.src.main.models.Trailer;
 import com.google.android.youtube.player.YouTubePlayerView;
@@ -32,13 +30,13 @@ import com.google.android.youtube.player.YouTubePlayerView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HomeFrag extends Fragment implements OnGetMoviesCallback, OnGetNewMoviesCallback {
+public class HomeActivity extends Fragment implements MovieView, NewMovieView {
 
     private View view;
     private RecyclerView moviesList, mPreviewRecyclerView, mNewMvRecycler;
     private MoviesAdapter adapter, mAdapterNew;
     private PreviewAdapter mPreviewAdapter;
-    private MoviesRepository moviesRepository;
+    private MovieService movieService;
     //youtube
     private YouTubePlayerView mTubePlayerView;
     ArrayList<Trailer> mTrailerList;
@@ -61,7 +59,7 @@ public class HomeFrag extends Fragment implements OnGetMoviesCallback, OnGetNewM
         mMovieBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(getContext(),MovieSelect.class);;
+                Intent intent=new Intent(getContext(), MovieActivity.class);;
                 startActivity(intent);
 
             }
@@ -95,9 +93,9 @@ public class HomeFrag extends Fragment implements OnGetMoviesCallback, OnGetNewM
 
     private void getMovies() {
 
-        MoviesRepository moviesRepository=new MoviesRepository(this,this);
-        moviesRepository.getPopularMovies();
-        moviesRepository.getNewMovies();
+        MovieService movieService =new MovieService(this,this);
+        movieService.getPopularMovies(-1);
+        movieService.getNewMovies();
 
     }
 

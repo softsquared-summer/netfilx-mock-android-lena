@@ -6,12 +6,9 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.example.netflix_project.R;
@@ -19,17 +16,8 @@ import com.example.netflix_project.src.BaseActivity;
 import com.example.netflix_project.src.main.ViewPager.User.Login;
 import com.example.netflix_project.src.main.ViewPager.User.LoginService;
 import com.example.netflix_project.src.main.ViewPager.User.interfaces.LoginActivityView;
-import com.example.netflix_project.src.main.ViewPager.User.models.LoginResponse;
-import com.example.netflix_project.src.main.mainpage.MainPage;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
-
-import java.nio.file.Path;
-import java.util.HashMap;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class SignUp extends BaseActivity implements LoginActivityView {
 

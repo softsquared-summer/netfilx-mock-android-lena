@@ -10,9 +10,9 @@ import androidx.annotation.Nullable;
 
 import com.example.netflix_project.R;
 import com.example.netflix_project.src.BaseActivity;
-import com.example.netflix_project.src.main.mainpage.MainPage;
+import com.example.netflix_project.src.main.mainpage.MainPageActivity;
 
-public class HomeMenu extends BaseActivity {
+public class MenuActivity extends BaseActivity {
     TextView mALL, mTV, mMovie, mContent, mClose;
 
     @Override
@@ -31,7 +31,7 @@ public class HomeMenu extends BaseActivity {
 
     public void onClickAll(View view){
 
-        Intent intent=new Intent(getApplicationContext(), MainPage.class);
+        Intent intent=new Intent(getApplicationContext(), MainPageActivity.class);
         startActivity(intent);
         mALL.setTextSize(20);
         mALL.setTextColor(Color.WHITE);
@@ -42,7 +42,7 @@ public class HomeMenu extends BaseActivity {
 
     public void onClickMovie(View view){
 
-        Intent intent=new Intent(getApplicationContext(),MovieSelect.class);
+        Intent intent=new Intent(getApplicationContext(), MovieActivity.class);
         startActivity(intent);
         mMovie.setTextSize(20);
         mMovie.setTextColor(Color.WHITE);

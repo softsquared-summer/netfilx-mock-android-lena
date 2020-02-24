@@ -15,7 +15,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.example.netflix_project.R;
 
-public class MembershipSelect extends AppCompatActivity {
+public class MembershipSelectActivity extends AppCompatActivity {
 
     public static TabHost tabHost;
 
@@ -129,7 +129,7 @@ public class MembershipSelect extends AppCompatActivity {
     }
 
     public  void onClickNext2(View view){
-        Intent intent=new Intent(getApplicationContext(), MembershipAccount.class);
+        Intent intent=new Intent(getApplicationContext(), MembershipRegisterActivity.class);
         startActivity(intent);
     }
 }

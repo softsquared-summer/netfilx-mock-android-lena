@@ -1,4 +1,4 @@
-package com.example.netflix_project.src.main.SplashActivity;
+package com.example.netflix_project.src.main.Splash;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,7 +10,7 @@ import com.example.netflix_project.R;
 import com.example.netflix_project.src.BaseActivity;
 import com.example.netflix_project.src.main.ViewPager.ViewPagerActivity;
 
-public class Splash extends BaseActivity {
+public class SplashActivity extends BaseActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -28,7 +28,7 @@ public class Splash extends BaseActivity {
 
             showProgressDialog();
             startActivity(new Intent(getApplication(), ViewPagerActivity.class));
-            Splash.this.finish();
+            SplashActivity.this.finish();
         }
     }
 

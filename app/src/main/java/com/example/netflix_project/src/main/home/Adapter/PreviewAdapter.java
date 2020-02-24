@@ -13,10 +13,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.netflix_project.R;
-import com.example.netflix_project.src.main.MovieDetail;
+import com.example.netflix_project.src.main.MovieInfoFrameActivity;
 import com.example.netflix_project.src.main.models.Movie;
 
 import java.util.List;
+
+import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
 
 public class PreviewAdapter extends RecyclerView.Adapter<PreviewAdapter.MovieViewHolder> {
     private List<Movie> movies;
@@ -45,9 +47,9 @@ public class PreviewAdapter extends RecyclerView.Adapter<PreviewAdapter.MovieVie
         holder.preview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(mContext, MovieDetail.class);
+                Intent intent=new Intent(mContext, MovieInfoFrameActivity.class);
                 intent.putExtra("movie_no",movies.get(position).getNo());
-                mContext.startActivity(intent);
+                mContext.startActivity(intent.addFlags(FLAG_ACTIVITY_NEW_TASK));
             }
         });
     }

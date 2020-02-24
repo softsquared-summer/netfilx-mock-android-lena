@@ -8,22 +8,23 @@ import android.view.ViewGroup;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.example.netflix_project.R;
 import com.example.netflix_project.src.BaseActivity;
+import com.example.netflix_project.src.main.ViewPager.SignUp.SignUp;
 
-public class MembershipFree extends BaseActivity {
+import java.util.zip.Inflater;
+
+public class MembershipRegisterActivity extends BaseActivity {
 
     Toolbar mToolbar;
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_register_account);
 
-        setContentView(R.layout.membership_free);
-
+        //툴바 커스텀
         mToolbar=findViewById(R.id.membership_toolbar);
         setSupportActionBar(mToolbar);
         ActionBar actionBar = getSupportActionBar();
@@ -32,12 +33,10 @@ public class MembershipFree extends BaseActivity {
         actionBar.setDisplayShowTitleEnabled(false);
         actionBar.setCustomView(viewToolbar, new ActionBar.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, Gravity.CENTER));
 
-
     }
 
-    public void onClickNext(View view){
-        Intent intent=new Intent(getApplicationContext(),MembershipSelect.class);
+    public void onClickSignUp(View view){
+        Intent intent=new Intent(getApplicationContext(), SignUp.class);
         startActivity(intent);
-
     }
 }

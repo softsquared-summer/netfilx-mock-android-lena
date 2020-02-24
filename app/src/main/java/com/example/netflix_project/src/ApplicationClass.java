@@ -4,17 +4,13 @@ import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.example.netflix_project.config.XAccessTokenInterceptor;
 import com.example.netflix_project.src.main.ViewPager.User.interfaces.UserApi;
-import com.example.netflix_project.src.main.interfaces.NetflixApi;
-import com.example.netflix_project.src.main.models.MoviesRepository;
+import com.example.netflix_project.src.main.interfaces.NetflixRetrofitInterface;
 
 import java.text.SimpleDateFormat;
 import java.util.Locale;
-import java.util.concurrent.TimeUnit;
 
 import okhttp3.MediaType;
-import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -85,18 +81,18 @@ public class ApplicationClass extends Application {
     }
 
     //MOVIE SERVICE
-    private static NetflixApi mNetflixApi = null;
+    private static NetflixRetrofitInterface mNetflixRetrofitInterface = null;
 
-    public static NetflixApi getMovieService() {
-        if (mNetflixApi == null) {
+    public static NetflixRetrofitInterface getMovieService() {
+        if (mNetflixRetrofitInterface == null) {
             Retrofit retrofit = new Retrofit.Builder()
                     .baseUrl(BaseUrl)
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
 
-            mNetflixApi = retrofit.create(NetflixApi.class);
+            mNetflixRetrofitInterface = retrofit.create(NetflixRetrofitInterface.class);
         }
 
-        return mNetflixApi;
+        return mNetflixRetrofitInterface;
     }
 }

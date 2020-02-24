@@ -5,9 +5,9 @@ import com.example.netflix_project.src.main.models.Movie;
 
 import java.util.List;
 
-public interface OnGetGenrePopularMoviesCallback {
+public interface MovieView {
 
-    void onGenrePopularMovieSuccess(List<Movie> movies);
+    void onPopularMovieSuccess(List<Movie> movies);
 
     void onError();
 }

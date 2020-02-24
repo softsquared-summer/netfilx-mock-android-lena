@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.netflix_project.R;
 
-public class SearchFrag extends Fragment {
+public class SearchActivity extends Fragment {
 
     private View view;
 

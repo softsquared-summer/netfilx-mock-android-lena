@@ -2,7 +2,6 @@ package com.example.netflix_project.src.main.home;
 
 import android.os.Bundle;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.ImageView;
 
 import androidx.annotation.Nullable;
@@ -12,13 +11,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.netflix_project.R;
 import com.example.netflix_project.src.BaseActivity;
 import com.example.netflix_project.src.main.home.Adapter.GenresAdapter;
-import com.example.netflix_project.src.main.interfaces.OnGetGenresCallback;
+import com.example.netflix_project.src.main.interfaces.GenreView;
 import com.example.netflix_project.src.main.models.Genre;
-import com.example.netflix_project.src.main.models.GenresResponsitory;
+import com.example.netflix_project.src.main.models.GenresService;
 
 import java.util.List;
 
-public class GenreList extends BaseActivity implements OnGetGenresCallback {
+public class GenreListActivity extends BaseActivity implements GenreView {
 
     private RecyclerView mGenreRecyclerView;
     private GenresAdapter mGenresAdapter;
@@ -47,8 +46,8 @@ public class GenreList extends BaseActivity implements OnGetGenresCallback {
 
     public  void getGenre(){
 
-        GenresResponsitory genresResponsitory=new GenresResponsitory(this);
-        genresResponsitory.getGenreList();
+        GenresService genresService =new GenresService(this);
+        genresService.getGenreList();
     }
 
     @Override

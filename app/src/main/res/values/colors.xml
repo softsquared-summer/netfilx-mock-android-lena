@@ -21,5 +21,6 @@
     <color name="ColorMovieRelease">#999999</color>
     <color name="ColorRunningTime">#999999</color>
     <color name="ColorSearachItemBack">#1e1e1e</color>
+    <color name="NetflixGray">#999999</color>
 
 </resources>

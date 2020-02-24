@@ -3,16 +3,115 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/colorNetflicBack"
+    >
+<LinearLayout
 
-    <TextView
-        android:layout_width="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:orientation="vertical"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="ADD"
-        android:textSize="50dp"
+        android:orientation="horizontal"
 
-        >
+        android:layout_marginTop="5dp">
 
-    </TextView>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            >
+        <ImageView
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:src="@drawable/cat_profile"
+            android:id="@+id/user_profile"
+            android:layout_gravity="center"
+            />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lena"
+                android:textColor="@color/colorWhite"
+                android:textSize="15sp"
+                android:textAlignment="center"
+                android:layout_gravity="center"
+                />
+
+    </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            >
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/kids_profile"
+            android:id="@+id/kides_profile"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="키즈"
+                android:textColor="@color/NetflixGray"
+                android:textSize="15sp"
+                android:textAlignment="center"
+                android:layout_gravity="center"
+
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="20dp"
+            >
+
+            <LinearLayout
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@drawable/border_gray"
+                android:gravity="center"
+
+                >
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_add_user"
+                android:layout_gravity="center"
+                />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="프로필 추가"
+                android:textColor="@color/NetflixGray"
+                android:textSize="15sp"
+                android:textAlignment="center"
+                android:layout_gravity="center"
+
+
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>
 </LinearLayout>

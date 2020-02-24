@@ -2,32 +2,19 @@ package com.example.netflix_project.src.main.ViewPager.User;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.netflix_project.R;
 import com.example.netflix_project.src.BaseActivity;
 import com.example.netflix_project.src.main.ViewPager.User.interfaces.LoginActivityView;
-import com.example.netflix_project.src.main.ViewPager.User.interfaces.UserApi;
-import com.example.netflix_project.src.main.ViewPager.User.models.LoginResponse;
-import com.example.netflix_project.src.main.ViewPager.User.models.UserResponse;
-import com.example.netflix_project.src.main.mainpage.MainPage;
+import com.example.netflix_project.src.main.mainpage.MainPageActivity;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
-
-import java.util.HashMap;
-import java.util.Objects;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class Login extends BaseActivity implements LoginActivityView {
 
@@ -120,7 +107,7 @@ public class Login extends BaseActivity implements LoginActivityView {
     @Override
     public void validateSuccess(boolean success, String message) {
         if(success){
-            Intent intent=new Intent(getApplicationContext(),MainPage.class);
+            Intent intent=new Intent(getApplicationContext(), MainPageActivity.class);
             startActivity(intent);
         }
         else
